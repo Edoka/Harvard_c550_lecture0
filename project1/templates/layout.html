@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+        <style>
+        .pages {
+        background-color: black;
+        color: white;
+        margin: 20px;
+        padding: 20px;
+        }
+        .myHeader {
+        background-color: lightblue;
+        color: black;
+        padding: 40px;
+        text-align: center;
+        }
+        .myBody {
+        background-color: lightblue;
+        color: black;
+        padding: 40px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <h1>{% block heading %}{% endblock %}</h1>
+        <div class="pages">                
+
+            {% block body %}
+
+            {% endblock %}
+            <ul class="nav nav-pills pull-right">
+                {% if session['logged_in'] == True  %}
+                <li><a href="{{ url_for('profile') }}">Home</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </body>
+</html>

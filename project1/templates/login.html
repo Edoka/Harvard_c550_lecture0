@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Login
+{% endblock %}
+
+{% block body %}
+<!-- {{ book }} -->
+{{ error }}
+    <!-- <h1>Login</h1> -->
+    <form action="{{ url_for('login') }}" method="post">
+        <div class="row">
+            <input type="text" name="name" placeholder="Enter Your Name">
+        </div>
+        <!-- <div class="row">
+            <input type="email" name="email" placeholder="Enter Your Email Address">
+        </div> -->
+        <div class="row">
+            <input type="password" name="pwd" placeholder="Choose a password">
+        </div>
+        <div class="row">
+        <button>Login</button>
+        </div>
+    </form>
+
+    {{ message }}
+ 
+{% endblock %}

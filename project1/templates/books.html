@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Welcome to my Read App
+{% endblock %}
+
+{% block body %}
+    <div class="form-groupxfv a">
+        {{ bookk }} <br><br>
+        Title: {{ title }} <br>
+        Author: {{ author }} <br>
+        Year: {{ year }} <br>
+        Isbn: {{ isbn }} <br>
+        Reviews_count: {{ reviews_count }} <br>
+        Average_rating: {{ average_rating }} <br> <br>
+
+
+        {% if session['isReviewed'] == True %}    
+            You have giving this book a {{ book_review }} <br>
+            Your review text: "{{ book_review_text }}"
+        {% endif %}   
+    </div>
+
+    <div> {{ review_message }}</div>
+
+    <div class="forn-groupxfv a">
+        <form action="{{ url_for('book', isbn=isbn) }}" method="post">
+            <!-- addUser function will change to book later -->
+            <div class="row">
+
+                <input type="number" id="review" name="review" min="0" max="5" step="0.5" value="4" placeholder="Add Review">
+                <input type="text" name="review_text" placeholder="Add Review">
+
+                {% if session['isReviewed'] != False %}    
+                    <button disabled >Add Review</button> 
+                {% else %}
+                    <button>Add Review</button> 
+                {% endif %}   
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+

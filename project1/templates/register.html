@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Register
+{% endblock %}
+
+{% block body %}
+    <!-- <h1>Register</h1> -->
+
+    <form action="{{ url_for('register') }}" method="post">
+        <div class="row">
+        <input type="text" name="name" placeholder="Enter Your Name">
+        </div>
+        <div class="row">
+            <input type="email" name="email" placeholder="Enter Your Email Address">
+        </div>
+        <div class="row">
+            <input type="password" name="pwd" placeholder="Choose a password">
+        </div>
+        <div class="row">
+        <button>Register</button>
+        </div>
+    </form>
+{% endblock %}
